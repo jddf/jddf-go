@@ -77,14 +77,6 @@ func (vm *vm) validate(schema Schema, instance interface{}, parentTag *string) e
 			if err := vm.checkInt(instance, 0.0, 4294967295.0); err != nil {
 				return err
 			}
-		case TypeInt64:
-			if err := vm.checkInt(instance, -9223372036854775808.0, 9223372036854775807.0); err != nil {
-				return err
-			}
-		case TypeUint64:
-			if err := vm.checkInt(instance, 0.0, 18446744073709551615.0); err != nil {
-				return err
-			}
 		case TypeString:
 			if _, ok := instance.(string); !ok {
 				vm.pushSchemaToken("type")

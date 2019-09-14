@@ -49,12 +49,6 @@ const (
 	// TypeUint32 represents a uint32.
 	TypeUint32 = "uint32"
 
-	// TypeInt64 represents a int64.
-	TypeInt64 = "int64"
-
-	// TypeUint64 represents a uint64.
-	TypeUint64 = "uint64"
-
 	// TypeString represents a string.
 	TypeString = "string"
 
