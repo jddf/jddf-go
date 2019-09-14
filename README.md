@@ -1,6 +1,6 @@
 # jddf-go [![badge]][docs]
 
-> Documentation on godoc.org: https://godoc.org/github.com/jddf/jddf-go
+> Documentation on godoc.org: [https://godoc.org/github.com/jddf/jddf-go](docs)
 
 This package is a Golang implementation of **JSON Schema Langugage**. You can
 use this package to:
