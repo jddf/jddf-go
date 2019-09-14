@@ -2,8 +2,8 @@
 
 > Documentation on godoc.org: [https://godoc.org/github.com/jddf/jddf-go][docs]
 
-This package is a Golang implementation of **JSON Schema Langugage**. You can
-use this package to:
+This package is a Golang implementation of **JSON Data Definition Format**. You
+can use this package to:
 
 1. Validate input data against a schema,
 2. Get a list of validation errors from that input data, or
