@@ -44,8 +44,8 @@ func (r *ValidationResult) IsValid() bool {
 //
 // Note that this is not a error in the Golang sense of the term.
 type ValidationError struct {
-	InstancePath []string
-	SchemaPath   []string
+	InstancePath []string `json:"instancePath"`
+	SchemaPath   []string `json:"schemaPath"`
 }
 
 // Validate checks whether an instance ("input") is valid against a Schema, and
