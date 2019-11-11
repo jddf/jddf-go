@@ -122,16 +122,20 @@ func (s *Schema) Form() Form {
 // of the schema.
 func (s *Schema) Verify() error {
 	for _, def := range s.Definitions {
-		if err := def.verify(s); err != nil {
+		if err := def.verify(s, false); err != nil {
 			return err
 		}
 	}
 
-	return s.verify(s)
+	return s.verify(s, true)
 }
 
-func (s *Schema) verify(root *Schema) error {
+func (s *Schema) verify(root *Schema, isRoot bool) error {
 	isEmpty := true
+
+	if !isRoot && s.Definitions != nil {
+		return ErrNonRootDefinition
+	}
 
 	if s.Ref != nil {
 		if root.Definitions == nil {
@@ -186,7 +190,7 @@ func (s *Schema) verify(root *Schema) error {
 			return ErrInvalidForm
 		}
 
-		if err := s.Elements.verify(root); err != nil {
+		if err := s.Elements.verify(root, false); err != nil {
 			return err
 		}
 
@@ -207,13 +211,13 @@ func (s *Schema) verify(root *Schema) error {
 		}
 
 		for _, s := range s.RequiredProperties {
-			if err := s.verify(root); err != nil {
+			if err := s.verify(root, false); err != nil {
 				return err
 			}
 		}
 
 		for _, s := range s.OptionalProperties {
-			if err := s.verify(root); err != nil {
+			if err := s.verify(root, false); err != nil {
 				return err
 			}
 		}
@@ -226,7 +230,7 @@ func (s *Schema) verify(root *Schema) error {
 			return ErrInvalidForm
 		}
 
-		if err := s.Values.verify(root); err != nil {
+		if err := s.Values.verify(root, false); err != nil {
 			return err
 		}
 
@@ -243,7 +247,7 @@ func (s *Schema) verify(root *Schema) error {
 		}
 
 		for _, m := range s.Discriminator.Mapping {
-			if err := m.verify(root); err != nil {
+			if err := m.verify(root, false); err != nil {
 				return err
 			}
 

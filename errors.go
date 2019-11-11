@@ -9,6 +9,8 @@ import (
 // forms.
 var ErrInvalidForm = errors.New("jddf: ambiguous or invalid schema form")
 
+var ErrNonRootDefinition = errors.New("jddf: non-root definition")
+
 // ErrEmptyEnum indicates that the schema has an enum form with no values.
 var ErrEmptyEnum = errors.New("jddf: empty enum")
 
