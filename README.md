@@ -1,6 +1,6 @@
-# jddf-go [![badge]][docs]
+# jddf-go [![][godoc-badge]][godoc-url] [![][ci-badge]][ci-url]
 
-> Documentation on godoc.org: [https://godoc.org/github.com/jddf/jddf-go][docs]
+> Documentation on godoc.org: https://godoc.org/github.com/jddf/jddf-go
 
 This package is a Golang implementation of **JSON Data Definition Format**. You
 can use this package to:
@@ -9,10 +9,15 @@ can use this package to:
 2. Get a list of validation errors from that input data, or
 3. Build your own tooling on top of JSON Data Definition Format
 
+[godoc-badge]: https://godoc.org/github.com/jddf/jddf-go?status.svg
+[ci-badge]: https://github.com/jddf/jddf-go/workflows/Go%20CI/badge.svg?branch=master
+[godoc-url]: https://godoc.org/github.com/jddf/jddf-go
+[ci-url]: https://github.com/jddf/jddf-go/actions
+
 ## Usage
 
-See [the docs][docs] for more detailed usage, but at a high level, here's how
-you parse schemas and validate input data against them:
+See [the docs][godoc-url] for more detailed usage, but at a high level, here's
+how you parse schemas and validate input data against them:
 
 ```golang
 import (
@@ -80,6 +85,3 @@ func main() error {
   fmt.Println(resultBad.Errors[2].InstancePath, resultBad.Errors[2].SchemaPath)
 }
 ```
-
-[badge]: https://godoc.org/github.com/jddf/jddf-go?status.svg
-[docs]: https://godoc.org/github.com/jddf/jddf-go
