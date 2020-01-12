@@ -1,4 +1,4 @@
-name: Ruby CI
+name: Go CI
 on: push
 jobs:
   build:
